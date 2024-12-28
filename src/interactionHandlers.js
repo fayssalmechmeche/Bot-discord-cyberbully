@@ -53,15 +53,18 @@ async function handleWarning(interaction) {
     let result = '';
     switch (getWarnings(interaction.guild.id, interaction.author.id)) {
         case 5:
-            result = "Tu as été banni 1 jours temporairement pour cyberharcèlement après plusieurs avertissements, le prochain avertissement sera un bannissement définitif.";
-            await interaction.member.ban({ days: 1, reason: "Cyberharcèlement" });
+            result = "Banni 1 jours temporairement pour cyberharcèlement après plusieurs avertissements, le prochain avertissement sera un bannissement définitif.";
+            await interaction.member.ban({ days: 1, reason: result });
+            break;
         case 7:
-            result = "Tu as été banni définitivement pour cyberharcèlement après plusieurs avertissements.";
-            await interaction.member.ban({ reason: "Cyberharcèlement" });
+            result = "Banni définitivement pour cyberharcèlement après plusieurs avertissements.";
+            await interaction.member.ban({ reason: result });
             await resetWarnings(interaction.guild.id, interaction.author.id);
+            break;
         default:
             result = await model.generateContent([prompt + interaction.content], { max_tokens: 100 });
             await interaction.author.send(`Attention, ton message pourrait être considéré comme du cyberharcèlement. Voici un message constructif que tu pourrais envoyer à la place : \n ${result.response.text()}`);
+            break;
     }
 
     return await interaction.delete();
