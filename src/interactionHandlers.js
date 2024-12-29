@@ -56,7 +56,7 @@ async function handleWarning(interaction) {
             result = "Banni 1 jours temporairement pour cyberharcèlement après plusieurs avertissements, le prochain avertissement sera un bannissement définitif.";
             await interaction.member.ban({ days: 1, reason: result });
             break;
-        case 7:
+        case 10:
             result = "Banni définitivement pour cyberharcèlement après plusieurs avertissements.";
             await interaction.member.ban({ reason: result });
             await resetWarnings(interaction.guild.id, interaction.author.id);
