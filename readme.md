@@ -22,7 +22,7 @@ Avant de pouvoir utiliser ce bot, assurez-vous de remplir les conditions suivant
 1. Clonez ce dépôt sur votre machine locale :
 
    ```bash
-   git clone https://github.com/yourusername/discord-cyberbullying-bot.git
+   git clone https://github.com/fayssalmechmeche/discord-cyberbullying-bot.git
    ```
 
 2. Installez les dépendances nécessaires :
